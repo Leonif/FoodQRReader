@@ -24,10 +24,6 @@ class ParseProccesor {
     var foundCharacters = ""
     var xmlParser: XMLParser?
     
-    
-    
-    
-    
     func loadParsedBill(data: String) -> [BillRow]? {
         switch dataType(data: data) {
         case .json:
@@ -77,9 +73,6 @@ class ParseProccesor {
     
     
     func parseXML(xml: String)->[BillRow]? {
-        
-        
-        
         let rows = xml.components(separatedBy: "_id")
         print(rows.count-1)
         

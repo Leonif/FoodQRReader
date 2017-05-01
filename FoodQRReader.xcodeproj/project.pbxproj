@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		797E92301EB7C9FA00EE1B8B /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797E922F1EB7C9FA00EE1B8B /* HistoryCell.swift */; };
 		79A977801EB72393000FC643 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A9777F1EB72393000FC643 /* AppDelegate.swift */; };
 		79A977821EB72393000FC643 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A977811EB72393000FC643 /* MainVC.swift */; };
 		79A977851EB72393000FC643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A977831EB72393000FC643 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		797E922F1EB7C9FA00EE1B8B /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		79A9777C1EB72393000FC643 /* FoodQRReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodQRReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A9777F1EB72393000FC643 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79A977811EB72393000FC643 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				79A977831EB72393000FC643 /* Main.storyboard */,
+				797E922F1EB7C9FA00EE1B8B /* HistoryCell.swift */,
 				79B04A1E1EB7800A00E69588 /* billRowCellTableViewCell.swift */,
 			);
 			name = Vews;
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79A977821EB72393000FC643 /* MainVC.swift in Sources */,
+				797E92301EB7C9FA00EE1B8B /* HistoryCell.swift in Sources */,
 				79B04A1F1EB7800A00E69588 /* billRowCellTableViewCell.swift in Sources */,
 				79B04A1B1EB7761D00E69588 /* ParseProccesor.swift in Sources */,
 				79A977801EB72393000FC643 /* AppDelegate.swift in Sources */,
