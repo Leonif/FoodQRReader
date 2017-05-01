@@ -3,7 +3,63 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "MyParser.init(xml : String) -&gt; MyParser:ParseProccesor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "xml.data(using: String.Encoding.utf8)">
+            </PersistentString>
+            <PersistentString
+               value = "parser">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BillModel.loadParsedBill(result : QRCodeReaderResult) -&gt; ():BillModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dict">
+            </PersistentString>
+            <PersistentString
+               value = "convertToDictionary">
+            </PersistentString>
+            <PersistentString
+               value = "billrows">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BillXMLParser.parser(XMLParser, didEndElement : String, namespaceURI : String?, qualifiedName : String?) -&gt; ():BillXMLParser.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "foundCharacters">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "BillModel.convertToDictionary(text : String) -&gt; [[String : Any]]?:BillModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "BillXMLParser.parser(XMLParser, foundCharacters : String) -&gt; ():BillXMLParser.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bill">
+            </PersistentString>
+            <PersistentString
+               value = "arrParsedData">
+            </PersistentString>
+            <PersistentString
+               value = "currentElement">
+            </PersistentString>
+            <PersistentString
+               value = "foundCharacters">
+            </PersistentString>
+            <PersistentString
+               value = "start">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MyParser.parseXML() -&gt; [BillRow]:ParseProccesor.swift">
       </ContextState>
       <ContextState
          contextName = "MainVC.(scanBill(Any) -&gt; ()).(closure #1):MainVC.swift">
@@ -14,18 +70,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "BillModel.loadParsedBill(result : QRCodeReaderResult) -&gt; ():BillModel.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "billrows">
-            </PersistentString>
-            <PersistentString
-               value = "convertToDictionary">
-            </PersistentString>
-            <PersistentString
-               value = "dict">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "MyParser.parser(XMLParser, didStartElement : String, namespaceURI : String?, qualifiedName : String?, attributes : [String : String]) -&gt; ():ParseProccesor.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import Foundation
 
 
 
@@ -17,25 +18,20 @@ enum BillDataType {
     case uknown
 }
 
-
-
-
-
-
 class ParseProccesor {
-    
-    
     static var sharedInstance = ParseProccesor()
+    var currentElement = ""
+    var foundCharacters = ""
+    var xmlParser: XMLParser?
     
     func loadParsedBill(data: String) -> [BillRow]? {
-        
-        
         switch dataType(data: data) {
         case .json:
             return parseJSONBill(json: data)
         case .url:
             return parseURL(url:data)
-            
+        case .xml:
+            return parseXML(xml: data)
         default:
             return nil
         }
@@ -43,7 +39,7 @@ class ParseProccesor {
         
         
     }
-    
+    //define what kind of type QR
     func dataType(data: String) -> BillDataType {
         
         if data.contains("{") {
@@ -59,6 +55,9 @@ class ParseProccesor {
         return .uknown
     }
     
+   
+    
+    
     func convertToDictionary(text: String) -> [String: Any]? {
         if let data = text.data(using: .utf8) {
             do {
@@ -69,7 +68,39 @@ class ParseProccesor {
         }
         return nil
     }
+
     
+    
+    
+    func parseXML(xml: String)->[BillRow]? {
+        let rows = xml.components(separatedBy: "_id")
+        print(rows.count-1)
+        
+        var bill = [BillRow]()
+        
+        
+        for r in rows {
+            if let name = r.slice(from: "<name>", to: "</name>") {
+                if let price = Double(r.slice(from: "<price>", to: "</price>")!) {
+                    if let quantity = Double(r.slice(from: "<quantity>", to: "</quantity>")!) {
+                        let billrow = BillRow(name: name, price: price, quantity: quantity)
+                        bill.append(billrow)
+                    }
+                
+                }
+            }
+        
+        }
+        
+        if bill.isEmpty != true {
+        
+            return bill
+        }
+        
+        
+        
+        return nil
+    }
     
     
     func parseURL(url: String)->[BillRow]? {
@@ -105,9 +136,32 @@ class ParseProccesor {
         
         
     }
-    
-    
-    
-    
-    
 }
+
+
+extension String {
+    
+    func slice(from: String, to: String) -> String? {
+        
+        return (range(of: from)?.upperBound).flatMap { substringFrom in
+            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+                substring(with: substringFrom..<substringTo)
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

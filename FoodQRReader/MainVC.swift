@@ -11,50 +11,50 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
 
     @IBOutlet weak var billHistoryTableView: UITableView!
     var billModel = BillModel()
+    var history = BillHistory()
+    var cellId = "historyCell"
+    
     var showParsedBill = "showParsedBill"
+    var showBill = "showBill"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        billHistoryTableView.reloadData()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         billHistoryTableView.delegate = self
         billHistoryTableView.dataSource = self
-        
-        
     }
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return history.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = billHistoryTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? HistoryCell {
+            
+            cell.dateLabel.text = "Scanned: \(history.scanDate(indexPath: indexPath))"
+            cell.sumLabel.text = "Total: \(history.billTotal(indexPath: indexPath))"
+            
+            
+            return cell
+        }
         return UITableViewCell()
     }
 
     
     @IBAction func scanBill(_ sender: Any) {
-        
-        // Retrieve the QRCode content
-        // By using the delegate pattern
         readerVC.delegate = self
-        
-        // Or by using the closure pattern
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-            
             //get bill and pass it to bill controller
             if let billResult = result {
                 if self.billModel.loadParsedBill(result: billResult) {
                     
+                    self.history.add(bill: self.billModel)
                     self.performSegue(withIdentifier: self.showParsedBill, sender: nil)
-                    
                 }
-                
             }
-            
-            
-            
-            
-            
         }
         
         // Presents the readerVC as modal form sheet
@@ -70,6 +70,19 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
                 vc.parsedBill = billModel
             }
         }
+        if segue.identifier == showBill {
+            if let vc = segue.destination as? ParsedBillVC {
+                
+                if let indexPath = sender as? IndexPath  {
+                
+                    vc.parsedBill = history.bill(indexPath: indexPath)
+                }
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: showBill, sender: indexPath)
     }
     
     // Good practice: create the reader lazily to avoid cpu overload during the
@@ -86,9 +99,6 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
     
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
-        
-        
-        
         dismiss(animated: true, completion: nil)
     }
     
@@ -99,10 +109,6 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
             print("Switching capturing to: \(cameraName)")
         }
     }
-    
-    
-    
-    
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
         reader.stopScanning()
         

@@ -19,22 +19,65 @@ class BillRow {
     var quantity = 0.00
     
     init(billRow: [String:Any]) {
-        self.name = billRow["name"] as! String
-        self.price = billRow["price"] as! Double
-        self.quantity = billRow["quantity"] as! Double
+        
+        if let name = billRow["name"] as? String  {
+            self.name = name
+            if let price = billRow["price"] as? Double  {
+                self.price = price
+                if let quantity = billRow["quantity"] as? Double {
+                    self.quantity = quantity
+                }
+            }
+        }
+        
+        
    
     }
+    init(name: String, price: Double, quantity: Double) {
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+    }
+}
+
+
+class BillHistory {
+    
+    var history = [BillModel]()
+    
+    
+    func add(bill: BillModel) {
+        history.append(bill)
+    }
+    
+    var count: Int  {
+        return history.count
+    }
+    
+    func scanDate(indexPath: IndexPath) -> String {
+        return history[indexPath.row].scanDate!.getString(format: "dd.MM.yyyy")
+    }
+    func billTotal(indexPath: IndexPath) -> Double {
+        return history[indexPath.row].billTotal
+    }
+    
+    func bill(indexPath: IndexPath)->BillModel  {
+        
+        return history[indexPath.row]
+    }
+    
 }
 
 
 class BillModel {
     
     var billrows = [BillRow]()
+    var scanDate: Date?
     
     
     func loadParsedBill(result: QRCodeReaderResult) -> Bool {
-        
         if let b = ParseProccesor.sharedInstance.loadParsedBill(data: result.value) {
+            scanDate = Date()
             billrows = b
             return true
         }
@@ -42,7 +85,6 @@ class BillModel {
     }
     
     var count: Int {
-        
         return billrows.count
     }
     
@@ -55,10 +97,31 @@ class BillModel {
     func quantity(index: IndexPath) -> Double {
         return billrows[index.row].quantity
     }
-    func sum(index: IndexPath) -> Double {
+    func sumRow(index: IndexPath) -> Double {
         return billrows[index.row].quantity * billrows[index.row].price
     }
+    var billTotal: Double {
+        var sum = 0.0
+        for r in billrows {
+            sum += r.quantity * r.price
+        }
+        return sum
+    }
         
+    
+}
+
+
+extension Date {
+    
+    func getString(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.timeZone = TimeZone(abbreviation: "PDT")
+        return formatter.string(from: self)
+        
+    }
+    
     
 }
 
