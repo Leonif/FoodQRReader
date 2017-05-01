@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "BillModel.convertToDictionary(text : String) -&gt; [[String : Any]]?:BillModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MainVC.(scanBill(Any) -&gt; ()).(closure #1):MainVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.billModel.billrows">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BillModel.loadParsedBill(result : QRCodeReaderResult) -&gt; ():BillModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "billrows">
+            </PersistentString>
+            <PersistentString
+               value = "convertToDictionary">
+            </PersistentString>
+            <PersistentString
+               value = "dict">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -12,6 +12,8 @@
 		79A977851EB72393000FC643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A977831EB72393000FC643 /* Main.storyboard */; };
 		79A977871EB72393000FC643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79A977861EB72393000FC643 /* Assets.xcassets */; };
 		79A9778A1EB72393000FC643 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A977881EB72393000FC643 /* LaunchScreen.storyboard */; };
+		79A977941EB73E55000FC643 /* ParsedBillVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A977931EB73E55000FC643 /* ParsedBillVC.swift */; };
+		79A977961EB7427D000FC643 /* BillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A977951EB7427D000FC643 /* BillModel.swift */; };
 		90A1BECA94FB347D57752DB4 /* Pods_FoodQRReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3F20A81C547D1DCC93DB5D /* Pods_FoodQRReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,8 @@
 		79A977861EB72393000FC643 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79A977891EB72393000FC643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79A9778B1EB72393000FC643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79A977931EB73E55000FC643 /* ParsedBillVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedBillVC.swift; sourceTree = "<group>"; };
+		79A977951EB7427D000FC643 /* BillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillModel.swift; sourceTree = "<group>"; };
 		7C5AB229A6BD41E2DC69D93E /* Pods-FoodQRReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodQRReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodQRReader/Pods-FoodQRReader.debug.xcconfig"; sourceTree = "<group>"; };
 		CB3F20A81C547D1DCC93DB5D /* Pods_FoodQRReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodQRReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE15364349F5A93B7EB7964D /* Pods-FoodQRReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodQRReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodQRReader/Pods-FoodQRReader.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 			children = (
 				79A9777F1EB72393000FC643 /* AppDelegate.swift */,
 				79A977811EB72393000FC643 /* MainVC.swift */,
+				79A977951EB7427D000FC643 /* BillModel.swift */,
+				79A977931EB73E55000FC643 /* ParsedBillVC.swift */,
 				79A977831EB72393000FC643 /* Main.storyboard */,
 				79A977861EB72393000FC643 /* Assets.xcassets */,
 				79A977881EB72393000FC643 /* LaunchScreen.storyboard */,
@@ -214,6 +220,8 @@
 			files = (
 				79A977821EB72393000FC643 /* MainVC.swift in Sources */,
 				79A977801EB72393000FC643 /* AppDelegate.swift in Sources */,
+				79A977961EB7427D000FC643 /* BillModel.swift in Sources */,
+				79A977941EB73E55000FC643 /* ParsedBillVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

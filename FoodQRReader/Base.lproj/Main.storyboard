@@ -48,22 +48,23 @@
                     <navigationItem key="navigationItem" id="fum-N2-Ecf">
                         <barButtonItem key="rightBarButtonItem" title="Scan bill" id="hr6-79-0ju">
                             <connections>
-                                <action selector="scanAction:" destination="BYZ-38-t0r" id="bMk-ds-35T"/>
+                                <action selector="scanBill:" destination="BYZ-38-t0r" id="af0-d1-X8u"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="t3f-TW-chM" kind="show" id="HXO-6g-JWP"/>
+                        <outlet property="billHistoryTableView" destination="s1w-bX-BWe" id="9mE-GL-7SP"/>
+                        <segue destination="t3f-TW-chM" kind="show" id="rxI-tJ-lds"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="208.80000000000001" y="151.57421289355324"/>
         </scene>
-        <!--View Controller-->
+        <!--Parsed BillVC-->
         <scene sceneID="Hz3-Ih-LuC">
             <objects>
-                <viewController id="t3f-TW-chM" sceneMemberID="viewController">
+                <viewController id="t3f-TW-chM" customClass="ParsedBillVC" customModule="FoodQRReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d67-yz-Z7I"/>
                         <viewControllerLayoutGuide type="bottom" id="wAa-xh-8zE"/>
@@ -85,10 +86,13 @@
                             <constraint firstItem="VFa-iz-7LP" firstAttribute="leading" secondItem="c0Y-tq-clf" secondAttribute="leadingMargin" id="tXJ-dr-c6j"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="billTableView" destination="VFa-iz-7LP" id="Nnb-04-hAa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkN-cM-sdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1058" y="151"/>
+            <point key="canvasLocation" x="1074" y="152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="11x-BT-Wsa">

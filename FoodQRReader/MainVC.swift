@@ -7,18 +7,61 @@ import UIKit
 import AVFoundation
 import QRCodeReader
 
-class MainVC: UIViewController, QRCodeReaderViewControllerDelegate {
+class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewDelegate,UITableViewDataSource {
 
+    @IBOutlet weak var billHistoryTableView: UITableView!
+    var billModel = BillModel()
+    
+    
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        billHistoryTableView.delegate = self
+        billHistoryTableView.dataSource = self
+        
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 
     
+    @IBAction func scanBill(_ sender: Any) {
+        
+        // Retrieve the QRCode content
+        // By using the delegate pattern
+        readerVC.delegate = self
+        
+        // Or by using the closure pattern
+        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
+            
+            //get bill and pass it to bill controller
+            if let billResult = result {
+                self.billModel.loadParsedBill(result: billResult)
+                print(self.billModel.billrows)
+            }
+            
+            
+            
+            
+            
+        }
+        
+        // Presents the readerVC as modal form sheet
+        readerVC.modalPresentationStyle = .formSheet
+        present(readerVC, animated: true, completion: nil)
+        
+    }
     
     // Good practice: create the reader lazily to avoid cpu overload during the
     // initialization and each time we need to scan a QRCode
@@ -29,26 +72,6 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate {
         
         return QRCodeReaderViewController(builder: builder)
     }()
-    
-    @IBAction func scanAction(_ sender: AnyObject) {
-        // Retrieve the QRCode content
-        // By using the delegate pattern
-        readerVC.delegate = self
-        
-        // Or by using the closure pattern
-        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-            
-            //get json string of order
-            
-            
-            
-            print(result ?? "")
-        }
-        
-        // Presents the readerVC as modal form sheet
-        readerVC.modalPresentationStyle = .formSheet
-        present(readerVC, animated: true, completion: nil)
-    }
     
     // MARK: - QRCodeReaderViewController Delegate Methods
     
@@ -76,6 +99,13 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate {
         
         dismiss(animated: true, completion: nil)
     }
+
+    
+    
+    
+    
+    
+    
     
 
 }
