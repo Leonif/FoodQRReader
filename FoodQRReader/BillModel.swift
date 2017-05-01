@@ -6,8 +6,9 @@
 //  Copyright © 2017 LionLife. All rights reserved.
 //
 
-import AVFoundation
+
 import QRCodeReader
+
 
 
 
@@ -15,67 +16,47 @@ class BillRow {
     
     var name = ""
     var price = 0.00
-    var quantity = 0
+    var quantity = 0.00
     
     init(billRow: [String:Any]) {
-        
-        
         self.name = billRow["name"] as! String
         self.price = billRow["price"] as! Double
-        self.quantity = billRow["quantity"] as! Int
-            
-        
-    
-        
+        self.quantity = billRow["quantity"] as! Double
+   
     }
-    
-
-    
 }
 
 
-class BillModel{
+class BillModel {
     
     var billrows = [BillRow]()
-       
     
-    func loadParsedBill(result:QRCodeReaderResult) {
+    
+    func loadParsedBill(result: QRCodeReaderResult) -> Bool {
         
-        billrows.removeAll()
-        //1. try to parse
-        if let dict = convertToDictionary(text: result.value) {
-           
-            for r in dict {
-            
-                let billrow = BillRow(billRow: r.value as! [String: Any])
-                billrows.append(billrow)
-            }
-            
+        if let b = ParseProccesor.sharedInstance.loadParsedBill(data: result.value) {
+            billrows = b
+            return true
         }
+        return false
     }
     
-    //"{\"cake_id\":{\"name\":\"cake\",\"price\":1.99,\"quantity\":2},
-    //\"coffee_id\":{\"name\":\"coffee\",\"price\":1.39,\"quantity\":1},\
-    //"juice_id\":{\"name\":\"juice\",\"price\":1.45,\"quantity\":1},\
-    //"scrumble_id\":{\"name\":\"scrumble\",\"price\":2.99,\"quantity\":2}}"
-    func convertToDictionary(text: String) -> [String: Any]? {
-        if let data = text.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        return nil
+    var count: Int {
+        
+        return billrows.count
     }
-
     
-    
-    func parseJSONBill() {
-        
-        //rad into billRows
-        
-        
+    func name(index: IndexPath) -> String {
+        return billrows[index.row].name
+    }
+    func price(index: IndexPath) -> Double {
+        return billrows[index.row].price
+    }
+    func quantity(index: IndexPath) -> Double {
+        return billrows[index.row].quantity
+    }
+    func sum(index: IndexPath) -> Double {
+        return billrows[index.row].quantity * billrows[index.row].price
     }
         
     

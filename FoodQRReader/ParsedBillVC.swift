@@ -8,6 +8,10 @@ import UIKit
 
 class ParsedBillVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var billTableView: UITableView!
+    
+    var parsedBill: BillModel!
+    var idBillRowCell = "billRowCell"
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +25,25 @@ class ParsedBillVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        return parsedBill?.count ?? 0
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = billTableView.dequeueReusableCell(withIdentifier: idBillRowCell, for: indexPath) as? billRowCellTableViewCell {
+        
+            let bill = parsedBill
+            
+            cell.name.text = bill?.name(index: indexPath)
+            cell.price.text = "price: \(bill?.price(index: indexPath) ?? 0)"
+            cell.quantity.text = "quantity: \(bill?.quantity(index: indexPath) ?? 0)"
+            cell.sum.text = "sum: \(bill?.sum(index: indexPath) ?? 0)"
+            
+            
+            return cell
+        }
         return UITableViewCell()
     }
     

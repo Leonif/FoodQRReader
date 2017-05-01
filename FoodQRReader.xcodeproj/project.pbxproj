@@ -14,6 +14,8 @@
 		79A9778A1EB72393000FC643 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A977881EB72393000FC643 /* LaunchScreen.storyboard */; };
 		79A977941EB73E55000FC643 /* ParsedBillVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A977931EB73E55000FC643 /* ParsedBillVC.swift */; };
 		79A977961EB7427D000FC643 /* BillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A977951EB7427D000FC643 /* BillModel.swift */; };
+		79B04A1B1EB7761D00E69588 /* ParseProccesor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B04A1A1EB7761D00E69588 /* ParseProccesor.swift */; };
+		79B04A1F1EB7800A00E69588 /* billRowCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B04A1E1EB7800A00E69588 /* billRowCellTableViewCell.swift */; };
 		90A1BECA94FB347D57752DB4 /* Pods_FoodQRReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3F20A81C547D1DCC93DB5D /* Pods_FoodQRReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +28,9 @@
 		79A977891EB72393000FC643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79A9778B1EB72393000FC643 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79A977931EB73E55000FC643 /* ParsedBillVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedBillVC.swift; sourceTree = "<group>"; };
-		79A977951EB7427D000FC643 /* BillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillModel.swift; sourceTree = "<group>"; };
+		79A977951EB7427D000FC643 /* BillModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BillModel.swift; path = FoodQRReader/BillModel.swift; sourceTree = "<group>"; };
+		79B04A1A1EB7761D00E69588 /* ParseProccesor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseProccesor.swift; path = FoodQRReader/ParseProccesor.swift; sourceTree = "<group>"; };
+		79B04A1E1EB7800A00E69588 /* billRowCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = billRowCellTableViewCell.swift; sourceTree = "<group>"; };
 		7C5AB229A6BD41E2DC69D93E /* Pods-FoodQRReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodQRReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodQRReader/Pods-FoodQRReader.debug.xcconfig"; sourceTree = "<group>"; };
 		CB3F20A81C547D1DCC93DB5D /* Pods_FoodQRReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodQRReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE15364349F5A93B7EB7964D /* Pods-FoodQRReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodQRReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodQRReader/Pods-FoodQRReader.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,15 +87,42 @@
 			isa = PBXGroup;
 			children = (
 				79A9777F1EB72393000FC643 /* AppDelegate.swift */,
-				79A977811EB72393000FC643 /* MainVC.swift */,
-				79A977951EB7427D000FC643 /* BillModel.swift */,
-				79A977931EB73E55000FC643 /* ParsedBillVC.swift */,
-				79A977831EB72393000FC643 /* Main.storyboard */,
+				79B04A1D1EB77DF000E69588 /* Model */,
+				79B04A1C1EB77DC300E69588 /* Controllers */,
+				79B04A201EB7800E00E69588 /* Vews */,
 				79A977861EB72393000FC643 /* Assets.xcassets */,
 				79A977881EB72393000FC643 /* LaunchScreen.storyboard */,
 				79A9778B1EB72393000FC643 /* Info.plist */,
 			);
 			path = FoodQRReader;
+			sourceTree = "<group>";
+		};
+		79B04A1C1EB77DC300E69588 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79A977811EB72393000FC643 /* MainVC.swift */,
+				79A977931EB73E55000FC643 /* ParsedBillVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		79B04A1D1EB77DF000E69588 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				79A977951EB7427D000FC643 /* BillModel.swift */,
+				79B04A1A1EB7761D00E69588 /* ParseProccesor.swift */,
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		79B04A201EB7800E00E69588 /* Vews */ = {
+			isa = PBXGroup;
+			children = (
+				79A977831EB72393000FC643 /* Main.storyboard */,
+				79B04A1E1EB7800A00E69588 /* billRowCellTableViewCell.swift */,
+			);
+			name = Vews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +250,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				79A977821EB72393000FC643 /* MainVC.swift in Sources */,
+				79B04A1F1EB7800A00E69588 /* billRowCellTableViewCell.swift in Sources */,
+				79B04A1B1EB7761D00E69588 /* ParseProccesor.swift in Sources */,
 				79A977801EB72393000FC643 /* AppDelegate.swift in Sources */,
 				79A977961EB7427D000FC643 /* BillModel.swift in Sources */,
 				79A977941EB73E55000FC643 /* ParsedBillVC.swift in Sources */,
