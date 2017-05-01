@@ -128,8 +128,8 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.5" green="0.69756401909722221" blue="0.72078450520833337" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="65P-zQ-57i" secondAttribute="bottom" constant="8" id="1ub-pl-uYM"/>
                                                         <constraint firstAttribute="trailing" secondItem="XKN-Of-lzF" secondAttribute="trailing" constant="8" id="32c-8L-6Ww"/>
+                                                        <constraint firstItem="65P-zQ-57i" firstAttribute="top" secondItem="XKN-Of-lzF" secondAttribute="bottom" id="5c4-i7-8PU"/>
                                                         <constraint firstItem="XKN-Of-lzF" firstAttribute="top" secondItem="Zqg-jM-Nbk" secondAttribute="bottom" id="Hqj-ct-GhH"/>
                                                         <constraint firstItem="Zqg-jM-Nbk" firstAttribute="top" secondItem="S2A-9S-JNC" secondAttribute="top" constant="8" id="U7E-Hh-JdW"/>
                                                         <constraint firstItem="XKN-Of-lzF" firstAttribute="leading" secondItem="XW0-1Z-wvE" secondAttribute="trailing" constant="8" id="VT7-cq-zgO"/>
@@ -152,6 +152,7 @@
                                             <outlet property="name" destination="Zqg-jM-Nbk" id="aio-GF-2lW"/>
                                             <outlet property="price" destination="XKN-Of-lzF" id="Gsr-GE-Ze8"/>
                                             <outlet property="quantity" destination="XW0-1Z-wvE" id="oOX-fZ-Kgd"/>
+                                            <outlet property="sum" destination="65P-zQ-57i" id="CvL-84-TOz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

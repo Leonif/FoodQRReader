@@ -33,6 +33,8 @@ class ParseProccesor {
         switch dataType(data: data) {
         case .json:
             return parseJSONBill(json: data)
+        case .url:
+            return parseURL(url:data)
             
         default:
             return nil
@@ -69,6 +71,17 @@ class ParseProccesor {
     }
     
     
+    
+    func parseURL(url: String)->[BillRow]? {
+        
+        guard let url = URL(string: url),
+            let myData = NSData(contentsOf: url) as Data?, let json = String(data: myData, encoding: String.Encoding.utf8)
+            else {
+                return nil
+        }
+        
+        return parseJSONBill(json: json)
+    }
     
     
     func parseJSONBill(json: String)->[BillRow]? {

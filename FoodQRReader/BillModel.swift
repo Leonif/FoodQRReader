@@ -16,16 +16,15 @@ class BillRow {
     
     var name = ""
     var price = 0.00
-    var quantity = 0
+    var quantity = 0.00
     
     init(billRow: [String:Any]) {
         self.name = billRow["name"] as! String
         self.price = billRow["price"] as! Double
-        self.quantity = billRow["quantity"] as! Int
+        self.quantity = billRow["quantity"] as! Double
    
     }
 }
-
 
 
 class BillModel {
@@ -53,8 +52,11 @@ class BillModel {
     func price(index: IndexPath) -> Double {
         return billrows[index.row].price
     }
-    func quantity(index: IndexPath) -> Int {
+    func quantity(index: IndexPath) -> Double {
         return billrows[index.row].quantity
+    }
+    func sum(index: IndexPath) -> Double {
+        return billrows[index.row].quantity * billrows[index.row].price
     }
         
     

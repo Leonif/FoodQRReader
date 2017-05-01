@@ -32,11 +32,19 @@ class ParsedBillVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = billTableView.dequeueReusableCell(withIdentifier: idBillRowCell, for: indexPath)
+        if let cell = billTableView.dequeueReusableCell(withIdentifier: idBillRowCell, for: indexPath) as? billRowCellTableViewCell {
         
-        cell.textLabel?.text = parsedBill?.name(index: indexPath)
-        
-        return cell
+            let bill = parsedBill
+            
+            cell.name.text = bill?.name(index: indexPath)
+            cell.price.text = "price: \(bill?.price(index: indexPath) ?? 0)"
+            cell.quantity.text = "quantity: \(bill?.quantity(index: indexPath) ?? 0)"
+            cell.sum.text = "sum: \(bill?.sum(index: indexPath) ?? 0)"
+            
+            
+            return cell
+        }
+        return UITableViewCell()
     }
     
 }
