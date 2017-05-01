@@ -89,7 +89,7 @@ class BillModel {
     }
     
     func name(index: IndexPath) -> String {
-        return billrows[index.row].name
+        return billrows[index.row].name.uppercased()
     }
     func price(index: IndexPath) -> Double {
         return billrows[index.row].price
@@ -112,16 +112,5 @@ class BillModel {
 }
 
 
-extension Date {
-    
-    func getString(format: String) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        formatter.timeZone = TimeZone(abbreviation: "PDT")
-        return formatter.string(from: self)
-        
-    }
-    
-    
-}
+
 

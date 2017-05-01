@@ -48,7 +48,7 @@ class ParseProccesor {
         if data.contains("https://") {
             return .url
         }
-        if data.contains("<") {
+        if data.contains("xml") {
             return .xml
         }
         
