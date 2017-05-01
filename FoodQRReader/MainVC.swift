@@ -11,11 +11,7 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
 
     @IBOutlet weak var billHistoryTableView: UITableView!
     var billModel = BillModel()
-    
-    
-    
-    
-    
+    var showParsedBill = "showParsedBill"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +43,12 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
             
             //get bill and pass it to bill controller
             if let billResult = result {
-                self.billModel.loadParsedBill(result: billResult)
-                print(self.billModel.billrows)
+                if self.billModel.loadParsedBill(result: billResult) {
+                    
+                    self.performSegue(withIdentifier: self.showParsedBill, sender: nil)
+                    
+                }
+                
             }
             
             
@@ -61,6 +61,15 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
         readerVC.modalPresentationStyle = .formSheet
         present(readerVC, animated: true, completion: nil)
         
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showParsedBill {
+            if let vc = segue.destination as? ParsedBillVC {
+                vc.parsedBill = billModel
+            }
+        }
     }
     
     // Good practice: create the reader lazily to avoid cpu overload during the
