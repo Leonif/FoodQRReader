@@ -11,6 +11,7 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
 
     @IBOutlet weak var billHistoryTableView: UITableView!
     var billModel = BillModel()
+    
     var showParsedBill = "showParsedBill"
     
     override func viewDidLoad() {
@@ -45,16 +46,12 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
             if let billResult = result {
                 if self.billModel.loadParsedBill(result: billResult) {
                     
+                    
                     self.performSegue(withIdentifier: self.showParsedBill, sender: nil)
                     
                 }
                 
             }
-            
-            
-            
-            
-            
         }
         
         // Presents the readerVC as modal form sheet

@@ -24,17 +24,39 @@ class BillRow {
         self.quantity = billRow["quantity"] as! Double
    
     }
+    init(name: String, price: Double, quantity: Double) {
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+    }
+}
+
+
+class BillHistory {
+    
+    var history = [BillModel]()
+    
+    
+    func add(bill: BillModel) {
+        
+        history.append(bill)
+        
+        
+    }
+    
 }
 
 
 class BillModel {
     
     var billrows = [BillRow]()
+    var scanDate: Date?
     
     
     func loadParsedBill(result: QRCodeReaderResult) -> Bool {
         
         if let b = ParseProccesor.sharedInstance.loadParsedBill(data: result.value) {
+            scanDate = Date()
             billrows = b
             return true
         }
