@@ -13,6 +13,11 @@ class billRowCellTableViewCell: UITableViewCell {
     @IBOutlet var price: UILabel!
     @IBOutlet var quantity: UILabel!
     @IBOutlet var sum: UILabel!
+    @IBOutlet var cellView: UIView!
+    
+    override func awakeFromNib() {
+        cellView.dropShadow()
+    }
     
 
     

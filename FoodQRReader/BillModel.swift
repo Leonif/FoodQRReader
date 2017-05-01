@@ -89,7 +89,7 @@ class BillModel {
     }
     
     func name(index: IndexPath) -> String {
-        return billrows[index.row].name.uppercased()
+        return billrows[index.row].name.capitalized
     }
     func price(index: IndexPath) -> Double {
         return billrows[index.row].price
