@@ -17,14 +17,24 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
     var showBill = "showBill"
     
     override func viewWillAppear(_ animated: Bool) {
+        
         billHistoryTableView.reloadData()
     }
-    
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         billHistoryTableView.delegate = self
         billHistoryTableView.dataSource = self
+        
+        if let font =  UIFont(name: "Palatino", size: 20) {
+            self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.white]
+            
+            
+            
+        }
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return billHistory.count

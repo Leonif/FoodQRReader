@@ -24,7 +24,6 @@ extension Date {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         formatter.timeZone = TimeZone(abbreviation: TimeZone.current.abbreviation() ?? "")
-        print(self)
         return formatter.string(from: self)
         
     }
