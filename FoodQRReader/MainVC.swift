@@ -10,8 +10,7 @@ import QRCodeReader
 class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var billHistoryTableView: UITableView!
-    var billModel = BillModel()
-    var history = BillHistory()
+    var billHistory = BillHistory()
     var cellId = "historyCell"
     
     var showParsedBill = "showParsedBill"
@@ -28,14 +27,14 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
         billHistoryTableView.dataSource = self
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return history.count
+        return billHistory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = billHistoryTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? HistoryCell {
             
-            cell.dateLabel.text = "Scanned: \(history.scanDate(indexPath: indexPath))"
-            cell.sumLabel.text = "Total: \(history.billTotal(indexPath: indexPath))"
+            cell.dateLabel.text = "Scanned: \(billHistory.scanDate(indexPath: indexPath))"
+            cell.sumLabel.text = "Total: \(billHistory.billTotal(indexPath: indexPath))"
             
             
             return cell
@@ -45,16 +44,13 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
 
     //get bill and pass it to bill controller
     @IBAction func scanBill(_ sender: Any) {
-        
         readerVC.delegate = self
-        
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
             
             if let billResult = result {
-                if self.billModel.loadParsedBill(result: billResult) {
-                    
-                    self.history.add(bill: self.billModel)
-                    self.performSegue(withIdentifier: self.showParsedBill, sender: nil)
+                if let billTest = BillModel().loadParsedBill(result: billResult) {
+                    self.billHistory.add(bill: billTest)
+                    self.performSegue(withIdentifier: self.showParsedBill, sender: billTest)
                 }
             }
         }
@@ -69,13 +65,16 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showParsedBill {
             if let vc = segue.destination as? ParsedBillVC {
-                vc.parsedBill = billModel
+                if let bill = sender as? BillModel  {
+                
+                    vc.parsedBill = bill
+                }
             }
         }
         if segue.identifier == showBill {
             if let vc = segue.destination as? ParsedBillVC {
                 if let indexPath = sender as? IndexPath  {
-                    vc.parsedBill = history.bill(indexPath: indexPath)
+                    vc.parsedBill = billHistory.bill(indexPath: indexPath)
                 }
             }
         }

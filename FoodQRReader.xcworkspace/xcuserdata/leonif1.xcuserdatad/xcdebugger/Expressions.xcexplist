@@ -4,12 +4,28 @@
    <ContextStates>
       <ContextState
          contextName = "BillHistory.add(bill : BillModel) -&gt; ():BillModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.history">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "BillModel.convertToDictionary(text : String) -&gt; [[String : Any]]?:BillModel.swift">
       </ContextState>
       <ContextState
          contextName = "MyParser.parseXML() -&gt; [BillRow]:ParseProccesor.swift">
+      </ContextState>
+      <ContextState
+         contextName = "BillHistory.scanDate(indexPath : IndexPath) -&gt; String:BillModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "history">
+            </PersistentString>
+            <PersistentString
+               value = "history[indexPath.row].scanDate">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "MyParser.parser(XMLParser, didStartElement : String, namespaceURI : String?, qualifiedName : String?, attributes : [String : String]) -&gt; ():ParseProccesor.swift">
@@ -60,6 +76,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "BillHistory.printHistory() -&gt; ():BillModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "history">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BillModel.scanDate.getter:BillModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scanDate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "String.slice(from : String, to : String) -&gt; String?:ParseProccesor.swift">
       </ContextState>
       <ContextState
@@ -69,6 +101,9 @@
          contextName = "BillXMLParser.addBill(parsedData : [String : String]) -&gt; ():BillXMLParser.swift">
       </ContextState>
       <ContextState
+         contextName = "BillModel.loadParsedBill(result : QRCodeReaderResult) -&gt; Bool:BillModel.swift">
+      </ContextState>
+      <ContextState
          contextName = "MainVC.(scanBill(Any) -&gt; ()).(closure #1):MainVC.swift">
          <PersistentStrings>
             <PersistentString
@@ -76,6 +111,9 @@
             </PersistentString>
             <PersistentString
                value = "history">
+            </PersistentString>
+            <PersistentString
+               value = "billHistory">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
