@@ -10,8 +10,6 @@
 import QRCodeReader
 
 
-
-
 class BillRow {
     
     var name = ""
@@ -19,7 +17,6 @@ class BillRow {
     var quantity = 0.00
     
     init(billRow: [String:Any]) {
-        
         if let name = billRow["name"] as? String  {
             self.name = name
             if let price = billRow["price"] as? Double  {
@@ -30,8 +27,6 @@ class BillRow {
             }
         }
         
-        
-   
     }
     init(name: String, price: Double, quantity: Double) {
         self.name = name
@@ -55,7 +50,7 @@ class BillHistory {
     }
     
     func scanDate(indexPath: IndexPath) -> String {
-        return history[indexPath.row].scanDate!.getString(format: "dd.MM.yyyy")
+        return history[indexPath.row].scanDate!.getString(format: "dd.MM.yyyy hh:mm:ss")
     }
     func billTotal(indexPath: IndexPath) -> Double {
         return history[indexPath.row].billTotal

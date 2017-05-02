@@ -43,11 +43,13 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
         return UITableViewCell()
     }
 
-    
+    //get bill and pass it to bill controller
     @IBAction func scanBill(_ sender: Any) {
+        
         readerVC.delegate = self
+        
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-            //get bill and pass it to bill controller
+            
             if let billResult = result {
                 if self.billModel.loadParsedBill(result: billResult) {
                     
@@ -72,9 +74,7 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
         }
         if segue.identifier == showBill {
             if let vc = segue.destination as? ParsedBillVC {
-                
                 if let indexPath = sender as? IndexPath  {
-                
                     vc.parsedBill = history.bill(indexPath: indexPath)
                 }
             }
@@ -96,7 +96,6 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
     }()
     
     // MARK: - QRCodeReaderViewController Delegate Methods
-    
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         dismiss(animated: true, completion: nil)

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainVC-->
+        <!--Bill Scanner-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="FoodQRReader" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,9 +50,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanned: 01.05.2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ry-3M-Dt6">
-                                                            <rect key="frame" x="8" y="84" width="163" height="21"/>
+                                                            <rect key="frame" x="8" y="84" width="254" height="21"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="163" id="Beh-Lp-R3S"/>
+                                                                <constraint firstAttribute="width" constant="254" id="Beh-Lp-R3S"/>
                                                                 <constraint firstAttribute="height" constant="21" id="xTs-bw-X1S"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -112,7 +112,8 @@
                             <constraint firstItem="s1w-bX-BWe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xAq-9M-hvV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fum-N2-Ecf">
+                    <navigationItem key="navigationItem" title="Bill Scanner" id="fum-N2-Ecf">
+                        <barButtonItem key="backBarButtonItem" title="Bill list" id="ngf-qb-2hH"/>
                         <barButtonItem key="rightBarButtonItem" title="Scan Bill" id="hr6-79-0ju">
                             <color key="tintColor" red="1" green="0.40626293089999999" blue="0.42611599630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -145,8 +146,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="115" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VFa-iz-7LP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="611"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="billRowCell" rowHeight="115" id="7t0-IX-gnV" customClass="billRowCellTableViewCell" customModule="FoodQRReader" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="billRowCell" rowHeight="115" id="7t0-IX-gnV" customClass="billRowCellTableViewCell" customModule="FoodQRReader" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="7t0-IX-gnV" id="s67-3h-v1k">
@@ -154,25 +156,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2A-9S-JNC">
-                                                    <rect key="frame" x="8" y="8" width="359" height="91"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="87"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqg-jM-Nbk">
                                                             <rect key="frame" x="8" y="8" width="343" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="33" id="N7L-QQ-vGa"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                            <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="22"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sum: 1.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65P-zQ-57i">
-                                                            <rect key="frame" x="217" y="29.5" width="126" height="33"/>
+                                                            <rect key="frame" x="217" y="27.5" width="126" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="33" id="LVg-T3-ME1"/>
                                                                 <constraint firstAttribute="width" constant="126" id="NfH-Jg-PYe"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="20"/>
-                                                            <color key="textColor" red="0.97127586600000004" green="0.20473840830000001" blue="0.36529785390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantity: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XW0-1Z-wvE">
@@ -181,17 +183,17 @@
                                                                 <constraint firstAttribute="height" constant="33" id="fSe-V6-oyz"/>
                                                                 <constraint firstAttribute="width" constant="164" id="xTX-yB-TZQ"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price: 1.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKN-Of-lzF">
-                                                            <rect key="frame" x="8" y="55" width="80" height="33"/>
+                                                            <rect key="frame" x="8" y="55" width="76" height="33"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="33" id="tOI-tA-0aR"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -217,10 +219,11 @@
                                             <constraints>
                                                 <constraint firstItem="S2A-9S-JNC" firstAttribute="top" secondItem="s67-3h-v1k" secondAttribute="top" constant="8" id="2Qm-Qz-nBr"/>
                                                 <constraint firstItem="S2A-9S-JNC" firstAttribute="leading" secondItem="s67-3h-v1k" secondAttribute="leading" constant="8" id="N47-6W-v2Q"/>
-                                                <constraint firstAttribute="bottom" secondItem="S2A-9S-JNC" secondAttribute="bottom" constant="16" id="Nk0-k8-xy0"/>
+                                                <constraint firstAttribute="bottom" secondItem="S2A-9S-JNC" secondAttribute="bottom" constant="20" id="Nk0-k8-xy0"/>
                                                 <constraint firstAttribute="trailing" secondItem="S2A-9S-JNC" secondAttribute="trailing" constant="8" id="bzf-5W-62W"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="cellView" destination="S2A-9S-JNC" id="NHL-ou-O1Z"/>
                                             <outlet property="name" destination="Zqg-jM-Nbk" id="aio-GF-2lW"/>
@@ -238,11 +241,11 @@
                                     <constraint firstAttribute="height" constant="41" id="VTt-SY-ExO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="0.40626293089999999" blue="0.42611599630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Fid-nI-ueW" firstAttribute="top" secondItem="VFa-iz-7LP" secondAttribute="bottom" constant="7" id="APD-oo-x9s"/>
                             <constraint firstAttribute="trailing" secondItem="VFa-iz-7LP" secondAttribute="trailing" id="CYl-NI-IMO"/>
