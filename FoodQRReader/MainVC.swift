@@ -12,9 +12,11 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
     @IBOutlet weak var billHistoryTableView: UITableView!
     var billHistory = BillHistory()
     var cellId = "historyCell"
-    
     var showParsedBill = "showParsedBill"
     var showBill = "showBill"
+    var appFont = "Palatino"
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -28,11 +30,8 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
         billHistoryTableView.delegate = self
         billHistoryTableView.dataSource = self
         
-        if let font =  UIFont(name: "Palatino", size: 20) {
+        if let font =  UIFont(name: appFont, size: 20) {
             self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.white]
-            
-            
-            
         }
         
     }

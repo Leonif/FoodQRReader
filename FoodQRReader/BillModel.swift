@@ -2,9 +2,6 @@
 //  BillModel.swift
 //  FoodQRReader
 //
-//  Created by leo mac on 5/1/17.
-//  Copyright © 2017 LionLife. All rights reserved.
-//
 
 
 import QRCodeReader
@@ -68,8 +65,6 @@ class BillModel {
     
     var billrows = [BillRow]()
     var scanDate: Date?
-    
-    
     
     func loadParsedBill(result: QRCodeReaderResult) -> BillModel? {
         if let b = ParseProccesor.sharedInstance.loadParsedBill(data: result.value) {

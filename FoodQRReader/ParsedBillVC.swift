@@ -20,9 +20,6 @@ class ParsedBillVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         billTableView.delegate = self
         billTableView.dataSource = self
         billTotalLabel.text = "Total: \(parsedBill.billTotal)"
-        
-
-        // Do any additional setup after loading the view.
     }
     
     

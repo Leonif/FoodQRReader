@@ -2,9 +2,6 @@
 //  Extensions.swift
 //  FoodQRReader
 //
-//  Created by leo mac on 5/2/17.
-//  Copyright © 2017 LionLife. All rights reserved.
-//
 
 import UIKit
 
@@ -15,6 +12,18 @@ extension UIView {
         self.layer.shadowOffset = CGSize(width: 10, height: 6)
         self.layer.shadowRadius = 10
         
+    }
+}
+
+extension String {
+    
+    func slice(from: String, to: String) -> String? {
+        
+        return (range(of: from)?.upperBound).flatMap { substringFrom in
+            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+                substring(with: substringFrom..<substringTo)
+            }
+        }
     }
 }
 

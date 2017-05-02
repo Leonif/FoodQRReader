@@ -92,8 +92,8 @@
 			children = (
 				79A9777F1EB72393000FC643 /* AppDelegate.swift */,
 				79B04A1D1EB77DF000E69588 /* Model */,
-				79B04A1C1EB77DC300E69588 /* Controllers */,
 				79B04A201EB7800E00E69588 /* Vews */,
+				79B04A1C1EB77DC300E69588 /* Controllers */,
 				79A977861EB72393000FC643 /* Assets.xcassets */,
 				79A977881EB72393000FC643 /* LaunchScreen.storyboard */,
 				79A9778B1EB72393000FC643 /* Info.plist */,
@@ -106,6 +106,7 @@
 			children = (
 				79A977811EB72393000FC643 /* MainVC.swift */,
 				79A977931EB73E55000FC643 /* ParsedBillVC.swift */,
+				797E92311EB7E4AE00EE1B8B /* Extensions.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -124,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				79A977831EB72393000FC643 /* Main.storyboard */,
-				797E92311EB7E4AE00EE1B8B /* Extensions.swift */,
 				797E922F1EB7C9FA00EE1B8B /* HistoryCell.swift */,
 				79B04A1E1EB7800A00E69588 /* billRowCellTableViewCell.swift */,
 			);

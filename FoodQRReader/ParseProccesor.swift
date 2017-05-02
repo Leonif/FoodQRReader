@@ -2,9 +2,6 @@
 //  ParseProccesor.swift
 //  FoodQRReader
 //
-//  Created by leo mac on 5/1/17.
-//  Copyright © 2017 LionLife. All rights reserved.
-//
 
 import AVFoundation
 import Foundation
@@ -97,8 +94,6 @@ class ParseProccesor {
             return bill
         }
         
-        
-        
         return nil
     }
     
@@ -118,18 +113,16 @@ class ParseProccesor {
     func parseJSONBill(json: String)->[BillRow]? {
         
         var billRows = [BillRow]()
-        
-        
-        
-        //1. try to parse
         if let dict = convertToDictionary(text: json) {
             
             for r in dict {
-                
-                let billrow = BillRow(billRow: r.value as! [String: Any])
-                billRows.append(billrow)
+                if let billRow = r.value as? [String: Any] {
+                    billRows.append(BillRow(billRow: billRow))
+                }
             }
-            return billRows
+            if billRows.isEmpty != true {
+                return billRows
+            }
             
         }
         return nil
@@ -139,17 +132,7 @@ class ParseProccesor {
 }
 
 
-extension String {
-    
-    func slice(from: String, to: String) -> String? {
-        
-        return (range(of: from)?.upperBound).flatMap { substringFrom in
-            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
-                substring(with: substringFrom..<substringTo)
-            }
-        }
-    }
-}
+
 
 
 
