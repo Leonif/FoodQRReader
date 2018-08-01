@@ -12,20 +12,12 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
     @IBOutlet weak var billHistoryTableView: UITableView!
     var billModel = BillModel()
     
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         billHistoryTableView.delegate = self
         billHistoryTableView.dataSource = self
-        
-        
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -34,7 +26,6 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-
     
     @IBAction func scanBill(_ sender: Any) {
         
@@ -50,11 +41,6 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
                 self.billModel.loadParsedBill(result: billResult)
                 print(self.billModel.billrows)
             }
-            
-            
-            
-            
-            
         }
         
         // Presents the readerVC as modal form sheet
@@ -77,9 +63,6 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
     
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
-        
-        
-        
         dismiss(animated: true, completion: nil)
     }
     
@@ -91,22 +74,9 @@ class MainVC: UIViewController, QRCodeReaderViewControllerDelegate, UITableViewD
         }
     }
     
-    
-    
-    
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
         reader.stopScanning()
         
         dismiss(animated: true, completion: nil)
     }
-
-    
-    
-    
-    
-    
-    
-    
-
 }
-
