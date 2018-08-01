@@ -9,8 +9,6 @@
 import AVFoundation
 import QRCodeReader
 
-
-
 class BillRow {
     
     var name = ""
@@ -18,39 +16,25 @@ class BillRow {
     var quantity = 0
     
     init(billRow: [String:Any]) {
-        
-        
         self.name = billRow["name"] as! String
         self.price = billRow["price"] as! Double
         self.quantity = billRow["quantity"] as! Int
-            
-        
-    
-        
     }
-    
-
-    
 }
-
 
 class BillModel{
     
     var billrows = [BillRow]()
-       
     
     func loadParsedBill(result:QRCodeReaderResult) {
         
         billrows.removeAll()
         //1. try to parse
         if let dict = convertToDictionary(text: result.value) {
-           
             for r in dict {
-            
                 let billrow = BillRow(billRow: r.value as! [String: Any])
                 billrows.append(billrow)
             }
-            
         }
     }
     
@@ -69,15 +53,7 @@ class BillModel{
         return nil
     }
 
-    
-    
     func parseJSONBill() {
-        
-        //rad into billRows
-        
-        
+        //TODO: read into billRows
     }
-        
-    
 }
-
